@@ -77,8 +77,7 @@ function carpma(a,b){
   return a*b;
 }
 
-let sonuc = carpma(3,4);
-console.log(sonuc);
+
 
 
 
@@ -94,6 +93,7 @@ Aşağıdakileri yapın:
 
 function kopeginYasi(x){
   console.log("Köpeğin yaşı, " + x*7 + " olur.");
+  return x*7;
 }
 
 kopeginYasi(3);
@@ -120,8 +120,7 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
 
-function oyun(oyuncu, bilgisayar){
-  let bilg = Math.floor(Math.random()*3)
+let bilg = Math.floor(Math.random()*3)
   if (bilg==0){
     var bilgisayar = "Taş";
   }
@@ -131,33 +130,30 @@ function oyun(oyuncu, bilgisayar){
   else {
     var bilgisayar = "Makas";
   }
-
-  if (oyuncu == "Taş"){
-    if (bilgisayar == "Makas")
-    console.log("Kazandın!");
-    else if (bilgisayar == "Taş")
-    console.log("Berabere!");
-    else if (bilgisayar == "Kağıt")
-    console.log("Kaybettin!");
-  }
-  if (oyuncu == "Makas"){
-    if (bilgisayar == "Makas")
-    console.log("Berabere!");
-    else if (bilgisayar == "Taş")
-    console.log("Kaybettin!");
-    else if (bilgisayar == "Kağıt")
-    console.log("Kazandın!");
-  }
-  if (oyuncu == "Kağıt"){
-    if (bilgisayar == "Makas")
-    console.log("Kaybettin!");
-    else if (bilgisayar == "Taş")
-    console.log("Kazandın!");
-    else if (bilgisayar == "Kağıt")
-    console.log("Berabere!");
+function oyun(oyuncu, bilgisayar){
+  
+  
+  if (oyuncu == bilgisayar)
+  {
+    return "Beraberlik";
+  } else if
+  ((oyuncu == "Taş" && bilgisayar == "Makas") ||
+  (oyuncu == "Kağıt" && bilgisayar == "Taş") ||
+  (oyuncu == "Makas" && bilgisayar == "Kağıt"))
+  {
+    return "Kazandın!";
+  } else
+  {
+    return "Kaybettin!";
   }
 }
-oyun("Makas");
+
+
+
+
+
+  
+ 
 
 
 
@@ -172,11 +168,11 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 */
 
 function milDonusturucu(km){
-  let yeni = km*1.6;
-  console.log(km + " km "+ yeni + " mile eşittir.");
+  let yeni = km*0.621371;
+  return yeni;
 }
 
-milDonusturucu(10)
+
 
 
 
@@ -190,11 +186,11 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 */
 
 function feetDonusturucu(cm){
-  let boy = cm*0.03;
-  console.log(cm + " cm "+ boy + " feete eşittir.");
+  let boy = cm/30.48;
+  return boy;
 }
 
-feetDonusturucu(100);
+
 
 
 
@@ -213,10 +209,11 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 
 function cocukSarkisi(sayi){
     for (sayi;sayi>0;sayi--)
-      console.log(sayi + " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!");
+      return (sayi + " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!");
+    
 }
 
-cocukSarkisi(3)
+
 
 
 /* Görev 6 : Not Hesaplayıcı */
@@ -235,23 +232,37 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
 */
 
 function notHesapla(not){
+  
+  let calculatedNotStr = "";
+  
+  
   if (not>89 && not<101){
     console.log("A aldın");
+    
+    calculatedNotStr = "A aldın";
   }
   else if (not>79 && not<90){
     console.log("B aldın");
+
+    calculatedNotStr = "B aldın";
   }
   else if (not>69 && not<80){
     console.log("C aldın");
+
+    calculatedNotStr = "C aldın";
   }
   else if (not>59 && not<70){
     console.log("D aldın");
+
+    calculatedNotStr = "D aldın";
   }
   else if (not<60){
     console.log("F aldın");
+
+    calculatedNotStr = "F aldın";
   }
+  return calculatedNotStr;
 }
-notHesapla(53)
 
 
 
