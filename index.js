@@ -157,7 +157,7 @@ function oyun(oyuncu, bilgisayar){
     console.log("Berabere!");
   }
 }
-oyun("Taş");
+oyun("Makas");
 
 
 
